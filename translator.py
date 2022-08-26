@@ -92,8 +92,7 @@ def destination_language():
 	: Ex. Hindi , English , etc.")
 	print()
 
-	# Input destination language in which the user
-	# wants to translate
+	# Input destination language in which the user wants to translate
 	to_lang = takecommand()
 	while (to_lang == "None"):
 		to_lang = takecommand()
@@ -118,15 +117,11 @@ translator = Translator()
 text_to_translate = translator.translate(query, dest=to_lang)
 text = text_to_translate.text
 
-# Using Google-Text-to-Speech ie, gTTS() method
-# to speak the translated text into the
-# destination language which is stored in to_lang.
-# Also, we have given 3rd argument as False because
-# by default it speaks very slowly
+# Using Google-Text-to-Speech ie, gTTS() method to speak the translated text into the destination language which is stored in to_lang.
+# Also, we have given 3rd argument as False because by default it speaks very slowly
 speak = gTTS(text=text, lang=to_lang, slow=False)
 
-# Using save() method to save the translated
-# speech in capture_voice.mp3
+# Using save() method to save the translated speech in capture_voice.mp3
 speak.save("captured_voice.mp3")
 
 # Using OS module to run the translated voice.
